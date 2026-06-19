@@ -1,4 +1,4 @@
-﻿
+
 <local:MyCard Title="我可以使用 PCL 制作整合包吗？" CanSwap="True">
     <StackPanel Margin="25,40,23,11">
 	    <TextBlock Margin="0,0,0,4" LineHeight="17"
@@ -80,7 +80,7 @@
 <local:MyCard Title="关闭 PCL 中不需要的功能" CanSwap="True" IsSwapped="True">
     <StackPanel Margin="25,40,23,11">
 	    <TextBlock Margin="0,0,0,4" LineHeight="17"
-                   Text="你可以在 设置 → 个性化 → 功能隐藏 中关闭你不需要的功能入口，例如下载、个性化设置等页面。" />
+                   Text="你可以在 设置 → 个性化 → 功能隐藏 中关闭你不需要的功能入口，例如下载、个性化设置等页面。&#xa;在导出时，勾选“PCL 启动器程序”以及子选项“PCL 个性化内容”即可使导出的整合包内包含 PCL 启动器的正式版程序以及当前的个性化配置。" />
     </StackPanel>
 </local:MyCard>
 
