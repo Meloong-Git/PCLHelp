@@ -70,10 +70,10 @@
     </StackPanel>
 </local:MyCard>
 
-<local:MyCard Title="自带 Java" CanSwap="True" IsSwapped="True">
+<local:MyCard Title="控制使用的 Java" CanSwap="True" IsSwapped="True">
     <StackPanel Margin="25,40,23,11">
 	    <TextBlock Margin="0,0,0,4" LineHeight="17"
-                   Text="如果你想让整合包自带某个版本的 Java，可以直接将 Java 放在版本文件夹（versions/版本名）中，PCL 会自动搜索并优先选用放在版本文件夹里的 Java。&#xa;在导出时，你必须手动添加配置，才会导出该文件夹中的 Java。" />
+                   Text="你可以在 版本设置 → 设置 → Java 处选择 “自动选择指定版本的 Java” 或 “使用版本文件夹中的 Java” 来控制 PCL 所使用的 Java。" />
     </StackPanel>
 </local:MyCard>
 
