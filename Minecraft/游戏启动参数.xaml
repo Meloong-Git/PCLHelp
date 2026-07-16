@@ -34,7 +34,7 @@
     <local:MyCard Title="说明" Margin="0,0,0,15">
         <StackPanel Margin="25,40,23,15">
             <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17">
-                这些启动参数用于控制 Minecraft 的启动行为，通常由启动器自动生成，无需手动设置。了解它们有助于排查问题或自定义启动命令。
+                这些启动参数用于控制 Minecraft 的启动行为，通常由启动器自动生成。了解它们有助于排查问题或自定义启动命令。
             </TextBlock>
             <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17">
                 参数中的 <Run FontFamily="Consolas" Foreground="{DynamicResource ColorBrush2}">&lt;占位符&gt;</Run> 表示需要替换为实际值，方括号 <Run FontFamily="Consolas" Foreground="{DynamicResource ColorBrush2}">[可选]</Run> 表示可省略。
@@ -42,7 +42,9 @@
         </StackPanel>
     </local:MyCard>
 
-    <local:MyCard Title="基础必需参数" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+    <local:MyHint Margin="0,0,0,15" Text="你可以在 设置 -> 启动 -> 高级选项 -> 游戏参数 中填入这些参数" IsWarn="False" />
+
+    <local:MyCard Title="基础必需" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
         <StackPanel Margin="25,40,23,15">
             <Grid Margin="0,4">
                 <Grid.ColumnDefinitions>
@@ -51,7 +53,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBox Style="{StaticResource InlineCode}" Text="--version &lt;版本名&gt;" Grid.Column="0" Margin="0,0,10,0" />
                 <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
-                    设置版本名称。对应 client.json 中的 id 字段，显示在调试屏幕和崩溃报告中。
+                    设置版本名称，启动游戏必需。对应 client.json 中的 id 字段，显示在调试屏幕和崩溃报告中。
                 </TextBlock>
             </Grid>
             <Grid Margin="0,4">
