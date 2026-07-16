@@ -47,7 +47,7 @@
         </StackPanel>
     </local:MyCard>
 
-    <local:MyHint Margin="0,0,0,15" Text="你可以在 设置 -> 启动 -> 高级选项 -> 游戏参数 中填入这些参数" IsWarn="False" />
+    <local:MyHint Margin="0,0,0,15" Text="你可以在 设置 -> 启动 -> 高级选项 -> 游戏参数 中填入这些参数。" IsWarn="False" />
 
     <local:MyCard Title="基本启动参数" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
         <StackPanel Margin="25,40,23,15">
