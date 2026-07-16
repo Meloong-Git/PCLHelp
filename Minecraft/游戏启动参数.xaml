@@ -1,0 +1,426 @@
+<StackPanel Margin="0,0,0,0"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
+    <StackPanel.Resources>
+        <Style TargetType="TextBox" x:Key="InlineCode">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Margin" Value="2,0,2,0" />
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush1}" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{DynamicResource ColorBrush6}" 
+                                Opacity="0.9" 
+                                BorderBrush="{DynamicResource ColorBrush4}" 
+                                BorderThickness="0" 
+                                CornerRadius="5" 
+                                Padding="6,1">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </StackPanel.Resources>
+
+    <local:MyCard Title="说明" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17">
+                这些启动参数用于控制 Minecraft 的启动行为，通常由启动器自动生成，无需手动设置。了解它们有助于排查问题或自定义启动命令。
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17">
+                参数中的 <Run FontFamily="Consolas" Foreground="{DynamicResource ColorBrush2}">&lt;占位符&gt;</Run> 表示需要替换为实际值，方括号 <Run FontFamily="Consolas" Foreground="{DynamicResource ColorBrush2}">[可选]</Run> 表示可省略。
+            </TextBlock>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="基础必需参数" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--version &lt;版本名&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置版本名称。对应 client.json 中的 id 字段，显示在调试屏幕和崩溃报告中。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--versionType &lt;版本类型&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置版本类型，通常为 release、snapshot、old_beta 或 old_alpha，默认为 release。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--accessToken &lt;访问令牌&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    登录时生成的令牌，启动游戏必需。无效令牌允许进行单人游戏，但加入服务器时会报错。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--username &lt;玩家名&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置单人游戏使用的玩家名，多人游戏必须与账户名称匹配。默认为 Player 加系统时间的毫秒部分（0~999）。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--uuid &lt;UUID&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置玩家的 UUID，连字符可选。若访问令牌有效，则 UUID 必须与账户一致。默认为由玩家名生成的 UUID。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--xuid &lt;XUID&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置玩家的 Xbox 用户 ID。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--demo" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    切换至演示模式。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--offlineDeveloperMode" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    切换到离线开发者模式。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--clientId &lt;客户端ID&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置包含在遥测数据中的 ID，通常为 .minecraft 中 clientId_v2.txt 文件内的 UUID（Base64 编码）。默认不包含 ID。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="目录与资源路径" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--gameDir &lt;游戏文件夹&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置实例文件的文件夹，通常为 .minecraft，默认为当前工作目录。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--assetsDir &lt;资源文件夹&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置包含 objects 文件夹的目录，通常为 .minecraft/assets，默认为实例文件夹下的 assets 目录。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--resourcePackDir &lt;资源包文件夹&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置资源包文件夹，默认为实例文件夹下的 resourcepacks 目录。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--assetIndex &lt;资源索引名&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置资源索引 JSON 文件的名称（不带 .json），用于将内部名称映射到 assets/objects 中的文件。索引名随游戏版本变化。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="窗口与显示设置" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--width &lt;宽度&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置窗口初始宽度，默认为 854。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--height &lt;高度&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置窗口初始高度，默认为 480。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--fullscreen" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    启用全屏模式。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--fullscreenWidth &lt;水平分辨率&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置全屏水平分辨率，必须为游戏内滑块可选的分辨率之一。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--fullscreenHeight &lt;垂直分辨率&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置全屏垂直分辨率，必须为游戏内滑块可选的分辨率之一。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--graphicsBackend &lt;图形后端&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置图形后端，可选 default、opengl 或 vulkan，默认为 default。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="网络与代理" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--disableMultiplayer" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    禁用多人游戏和 Realms 按钮。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--disableChat" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    禁用发送和接收多人游戏及局域网开放世界中的公共和私人消息，但不影响命令和服务器消息。多数服务器会绕过此限制。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--proxyHost &lt;代理主机&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    通过代理路由流量。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--proxyPort &lt;代理端口&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置代理端口，默认为 8080。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--proxyUser &lt;代理用户名&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置代理认证用户名（与 --proxyPass 配合使用）。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--proxyPass &lt;代理密码&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置代理认证密码。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="快速启动" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--quickPlaySingleplayer [世界文件夹名]" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    游戏启动后自动进入指定的单人游戏世界，若省略参数则进入最近游玩的世界。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--quickPlayMultiplayer &lt;服务器地址&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    游戏启动后自动加入指定的服务器。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--quickPlayRealms &lt;Realm ID&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    游戏启动后自动加入指定的 Realm。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--quickPlayPath &lt;快速启动日志路径&gt;" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    设置写入快速启动日志的文件路径（相对于实例文件夹）。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyCard Title="调试与性能分析" CanSwap="True" IsSwapped="True" Margin="0,0,0,15">
+        <StackPanel Margin="25,40,23,15">
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--checkGlErrors" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    无实际作用，仅被接受并忽略。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--renderDebugLabels" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    为 GPU 调用命名，便于在调试工具中识别。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--vulkanValidation" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    检测 Vulkan 错误（而非忽略）并启用渲染调试标签。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--jfrProfile" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    游戏启动时使用 JDK Flight Recorder 开始性能分析。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--tracy" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    游戏启动时使用 Tracy 开始性能分析。
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource InlineCode}" Text="--tracyNoImages" Grid.Column="0" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center">
+                    使用 Tracy 调试时禁止捕获帧图像以显示在时间线中。
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </local:MyCard>
+
+    <local:MyHint Margin="0,0,0,15" Text="作者：GaoXinYang" IsWarn="False" />
+</StackPanel>

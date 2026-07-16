@@ -1,0 +1,7 @@
+{
+    "__Author__": "GaoXinYang",
+    "Title": "游戏启动参数",
+    "Description": "Minecraft 游戏启动参数列表及说明",
+    "Types": ["Minecraft"],
+    "Keywords": "启动参数, 命令行, JVM参数, 调试"
+}
