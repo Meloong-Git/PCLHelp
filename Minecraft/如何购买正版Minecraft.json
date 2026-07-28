@@ -1,0 +1,10 @@
+{
+	"__Author__": "0x4E6F6374",
+	"Title": "如何购买 Minecraft 正版",
+	"Description": "新手教程，教你如何购买正版《我的世界》",
+	"Types": [ "Minecraft" ],
+	"IsEvent": true,
+	"Keywords": "购买正版 Minecraft",
+	"EventType": "打开网页",
+	"EventData": "https://zhuanlan.zhihu.com/p/393174208"
+}
