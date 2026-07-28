@@ -1,6 +1,6 @@
 <local:MyCard Title="下载和配置 IntelliJ IDEA">
     <StackPanel Margin="25,40,23,15">
-        <TextBlock Margin="0,0,0,4" LineHeight="17" Text="IntelliJ IDEA 是主流的 Java 集成开发环境，适用于商业和开源开发。你可以通过点击下面的按钮来进行下载或访问其官方网站。由 JetBrains 开发的其他 IDE 或任何基于 InteillJ IDEA 的 IDE (如 Android Studio)同样适用于该教程。" />
+        <TextBlock Margin="0,0,0,4" LineHeight="17" Text="IntelliJ IDEA 是主流的 Java 集成开发环境，适用于商业和开源开发。你可以通过点击下面的按钮来进行下载或访问其官方网站。由 JetBrains 开发的其他 IDE 或任何基于 IntelliJ IDEA 的 IDE (如 Android Studio)同样适用于该教程。" />
         <StackPanel Height="35" Margin="0,4,0,10" Orientation="Horizontal">
             <local:MyButton MinWidth="140" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left"
                         Text="下载 IntelliJ IDEA" EventType="打开网页" EventData="https://www.jetbrains.com/zh-cn/idea/download/?section=windows" />
@@ -42,9 +42,9 @@
 
 <local:MyCard Title="利用 Git 获取代码库">
     <StackPanel Margin="25,40,23,15">
-        <TextBlock Margin="0,5,0,4" LineHeight="17" Text="1. 克隆仓库到本地。打开 “Terminal”，输入 git clone https://github.com/LTCatt/PCL2Help.git ，此操作会在本地创建一个名为 “PCL2Help” 的文件夹，并将代码仓库的内容下载到这个文件夹。" />
+        <TextBlock Margin="0,5,0,4" LineHeight="17" Text="1. 克隆仓库到本地。打开 “Terminal”，输入 git clone https://github.com/Meloong-Git/PCLHelp.git ，此操作会在本地创建一个名为 “PCLHelp” 的文件夹，并将代码仓库的内容下载到这个文件夹。" />
 
-        <TextBlock Margin="0,5,0,4" LineHeight="17" Text="2. 使用 IntelliJ IDEA 进行编写。首先，在 “Terminal” 中输入 “cd PCL2Help” 切换到代码仓库目录，然后打开 IntelliJ IDEA，选择 “打开已有的项目”，选择刚刚下载的 “PCL2Help” 文件夹，编写代码并保存更改。" />
+        <TextBlock Margin="0,5,0,4" LineHeight="17" Text="2. 使用 IntelliJ IDEA 进行编写。首先，在 “Terminal” 中输入 “cd PCLHelp” 切换到代码仓库目录，然后打开 IntelliJ IDEA，选择 “打开已有的项目”，选择刚刚下载的 “PCLHelp” 文件夹，编写代码并保存更改。" />
 
         <TextBlock Margin="0,5,0,4" LineHeight="17" Text="3. 将更改提交到 GitHub。在 “Terminal” 中，运行以下三个命令，将新更改添加到暂存区，然后提交并推送到远程仓库。" />
 
@@ -61,7 +61,7 @@
           
          <StackPanel Height="35" Margin="0,4,0,10" Orientation="Horizontal">
             <local:MyButton MinWidth="140" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left"
-                        Text="新建合并请求" EventType="打开网页" EventData="https://github.com/LTCatt/PCL2Help/compare" />
+                        Text="新建合并请求" EventType="打开网页" EventData="https://github.com/Meloong-Git/PCLHelp/compare" />
          </StackPanel>
 
          <TextBlock Margin="0,5,0,4" LineHeight="17" Text="若需同步源仓库和你的分支，打开你的 Fork 仓库页面，点击 “Fetch upstream”，然后点击 “Fetch and merge”。" />

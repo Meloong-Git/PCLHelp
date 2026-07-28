@@ -22,7 +22,7 @@
         <TextBlock LineHeight="17"
                    Text="1. 尽量使用网络中已有的教程帖，添加一个链接即可。若无必要，不必从头到尾重新写一遍。" />
         <local:MyListItem Margin="0,0,0,12" SnapsToDevicePixels="True" Type="Clickable"
-		            EventType="打开帮助" EventData="Minecraft/新手教程.json" />
+		            EventType="打开帮助" EventData="Minecraft/全面教程.json" />
         <TextBlock LineHeight="17"
                     Text="2. 如果教程内容可以用几句话说清，则只需使用第二类帮助，弹出窗口说明即可，无需添加 XAML 页面。" />
         <local:MyListItem Margin="0,0,0,12" SnapsToDevicePixels="True" Type="Clickable"

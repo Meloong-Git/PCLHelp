@@ -14,7 +14,7 @@
                    Text="你需要先注册并登录 GitHub 账号。此后，点击下方 GitHub 存储库 ，然后点击页面右上角的 Fork 建立一个分支。" />
         <StackPanel Height="35" Margin="0,4,0,10" Orientation="Horizontal">
             <local:MyButton MinWidth="140" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left" ColorType="Highlight"
-                            Text="GitHub 存储库" EventType="打开网页" EventData="https://github.com/LTCatt/PCL2Help" />
+                            Text="GitHub 存储库" EventType="打开网页" EventData="https://github.com/Meloong-Git/PCLHelp" />
             <local:MyButton MinWidth="170" Padding="13,0" Margin="0,0,20,0" HorizontalAlignment="Left"
                             Text="如何为 Git 设置代理" EventType="打开网页" EventData="https://www.jianshu.com/p/290152303598" />
         </StackPanel>
