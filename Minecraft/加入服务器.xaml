@@ -82,7 +82,7 @@
 </local:MyCard>
 
 
-<local:MyCard Title="连接超时" CanSwap="True" IsSwapped="True">
+<local:MyCard Title="连接超时 或 Connection timed out: no further information" CanSwap="True" IsSwapped="True">
     <StackPanel Margin="25,40,23,11">
         <TextBlock Margin="0,0,0,4" LineHeight="17"
                     Text="原因：连接超时。" />
@@ -91,28 +91,7 @@
 		<TextBlock Margin="2,0,0,4" LineHeight="17"
                     Text="1. 服务器已关闭或未正确开启。" />
         <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="2. 确认服务器地址拼写正确（尽量复制粘贴）。" />
-        <!-- 把地址拼写的问题放在这里，是因为尝试连接 www.baidu.com 的时候也报这个错 -->
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="3. 确认网络连接正常且网络环境良好，使用加速器或 VPN 后再次尝试连接服务器。" />
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="4. 尝试修改 DNS 服务器地址并刷新 DNS 缓存后再次尝试连接服务器。" />
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="5. 尝试关闭 Microsoft Defender 公用网络防火墙后再次尝试连接服务器。" />
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="6. 如问题仍未解决，请尝试在相关论坛及群聊中上传截图并寻求帮助。" />
-    </StackPanel>
-</local:MyCard>
-<local:MyCard Title="Connection timed out: no further information" CanSwap="True" IsSwapped="True">
-    <StackPanel Margin="25,40,23,11">
-        <TextBlock Margin="0,0,0,4" LineHeight="17"
-                    Text="原因：连接超时。" />
-        <TextBlock Margin="0,0,0,4" LineHeight="17"
-                    Text="解决方法：请逐一尝试和排查以下情况。" />
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="1. 服务器已关闭或未正确开启。" />
-        <TextBlock Margin="2,0,0,4" LineHeight="17"
-                    Text="2. 确认服务器地址拼写正确（尽量复制粘贴）。" />
+                    Text="2. 确认服务器地址拼写正确（尽量复制粘贴），若有冒号请确认为半角（英文）冒号。" />
         <!-- 把地址拼写的问题放在这里，是因为尝试连接 www.baidu.com 的时候也报这个错 -->
         <TextBlock Margin="2,0,0,4" LineHeight="17"
                     Text="3. 确认网络连接正常且网络环境良好，使用加速器或 VPN 后再次尝试连接服务器。" />
@@ -125,12 +104,18 @@
     </StackPanel>
 </local:MyCard>
 
-<local:MyCard Title="未知的主机 Unknown host 或 Cannot assign requested address: no further information" CanSwap="True" IsSwapped="True">
+<local:MyCard Title="未知的主机 Unknown host、Cannot assign requested address 或 Connection refused: getsockopt" CanSwap="True" IsSwapped="True">
     <StackPanel Margin="25,40,23,11">
         <TextBlock Margin="0,0,0,4" LineHeight="17"
                     Text="原因：无法访问目标地址。" />
         <TextBlock Margin="0,0,0,4" LineHeight="17"
-                    Text="解决方法：确认服务器地址拼写正确，若有冒号请确定为半角（英文）冒号，服务器地址尽量复制粘贴，或者确认服务器已开启。" />
+                    Text="解决方法：请逐一尝试和排查以下情况。" />
+		<TextBlock Margin="2,0,0,4" LineHeight="17"
+                    Text="1. 服务器已关闭或未正确开启。" />
+        <TextBlock Margin="2,0,0,4" LineHeight="17"
+                    Text="2. 确认服务器地址拼写正确（尽量复制粘贴），若有冒号请确认为半角（英文）冒号。" />
+        <TextBlock Margin="2,0,0,4" LineHeight="17"
+                    Text="3. 确认防火墙配置已经允许 Minecraft 进程通过。" />
     </StackPanel>
 </local:MyCard>
 
