@@ -1,7 +1,7 @@
 <local:MyCard Title="使用 PCL 进行多人游戏" Margin="0,0,0,15">
 	<StackPanel Margin="25,40,23,15">
 		<TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17" 
-                   Text="你可以使用 PCL 内置的联机功能快捷地与你的好友进行联机，以最大程度地简化联机所需要的操作步骤。" />
+                   Text="你可以使用 PCL 内置的联机功能快捷地与你的好友进行联机，以最大程度地简化联机所需要的操作步骤。(注：此界面在现版本PCL2启动器已失效)" />
         <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17" 
                    Text="PCL 的联机功能同样适用于部分其他游戏，此处仅介绍使用 PCL 进行 Minecraft 联机的操作步骤。" />
         <TextBlock TextWrapping="Wrap" Margin="0,0,0,4" LineHeight="17" 
